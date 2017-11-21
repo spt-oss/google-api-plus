@@ -45,7 +45,7 @@ public class XFilters {
 	public static final String NOT_EQUAL = "!=";
 	
 	/**
-	 * Regular expression match
+	 * Regular expression equal
 	 */
-	public static final String REGEX_MATCH = "=~";
+	public static final String REGEX_EQUAL = "=~";
 }
