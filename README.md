@@ -1,4 +1,4 @@
-# jsoup Plus
+# Google API Plus
 
 [![circleci](https://img.shields.io/badge/circleci-google--api--plus-brightgreen.svg)](https://circleci.com/gh/spt-oss/google-api-plus)
 [![maven central](https://img.shields.io/badge/maven_central-google--api--plus-blue.svg)](https://mvnrepository.com/artifact/com.github.spt-oss/google-api-plus)
