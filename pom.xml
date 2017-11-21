@@ -39,6 +39,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>com.github.spt-oss</groupId>
+				<artifactId>google-api-client-plus</artifactId>
+				<version>1.23.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
 				<groupId>com.google.api-client</groupId>
 				<artifactId>google-api-client</artifactId>
 				<version>${google-api-client.version}</version>
