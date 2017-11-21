@@ -9,22 +9,23 @@
 		<version>1.5.8.0</version>
 	</parent>
 
-	<artifactId>google-api-plus</artifactId>
+	<artifactId>google-plus</artifactId>
 	<version>1.23.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<description>Custom implementation for Google API Client</description>
-	<url>https://github.com/spt-oss/google-api-plus</url>
+	<description>Custom implementation for Google Library</description>
+	<url>https://github.com/spt-oss/google-plus</url>
 	<inceptionYear>2017</inceptionYear>
 
 	<modules>
 		<module>google-api-client-plus</module>
 		<module>google-api-services-analyticsreporting-plus</module>
+		<module>google-http-client-plus</module>
 	</modules>
 
 	<scm>
-		<url>https://github.com/spt-oss/google-api-plus/tree/master</url>
-		<connection>scm:git:git@github.com:spt-oss/google-api-plus.git</connection>
+		<url>https://github.com/spt-oss/google-plus/tree/master</url>
+		<connection>scm:git:git@github.com:spt-oss/google-plus.git</connection>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -33,6 +34,7 @@
 		<checkstyle.version>8.0</checkstyle.version>
 		<google-api-client.version>1.23.0</google-api-client.version>
 		<google-api-analytics.version>v4-rev118-1.23.0</google-api-analytics.version>
+		<google-http-client.version>1.23.0</google-http-client.version>
 		<spt-java-settings.version>0.1.1-SNAPSHOT</spt-java-settings.version>
 	</properties>
 
@@ -44,6 +46,11 @@
 				<version>1.23.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
+				<groupId>com.github.spt-oss</groupId>
+				<artifactId>google-http-client-plus</artifactId>
+				<version>1.23.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
 				<groupId>com.google.api-client</groupId>
 				<artifactId>google-api-client</artifactId>
 				<version>${google-api-client.version}</version>
@@ -52,6 +59,11 @@
 				<groupId>com.google.apis</groupId>
 				<artifactId>google-api-services-analyticsreporting</artifactId>
 				<version>${google-api-analytics.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.http-client</groupId>
+				<artifactId>google-http-client</artifactId>
+				<version>${google-http-client.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

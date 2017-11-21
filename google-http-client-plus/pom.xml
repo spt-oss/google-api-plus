@@ -10,7 +10,7 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<artifactId>google-api-client-plus</artifactId>
+	<artifactId>google-http-client-plus</artifactId>
 	<packaging>jar</packaging>
 
 	<scm>
@@ -19,12 +19,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.google.api-client</groupId>
-			<artifactId>google-api-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.spt-oss</groupId>
-			<artifactId>google-http-client-plus</artifactId>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

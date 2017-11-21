@@ -1,10 +1,10 @@
-# Google API Plus
+# Google Plus
 
-[![circleci](https://img.shields.io/badge/circleci-google--api--plus-brightgreen.svg)](https://circleci.com/gh/spt-oss/google-api-plus)
-[![maven central](https://img.shields.io/badge/maven_central-google--api--plus-blue.svg)](https://mvnrepository.com/artifact/com.github.spt-oss/google-api-plus)
-[![javadoc](https://img.shields.io/badge/javadoc-google--api--plus-blue.svg)](https://www.javadoc.io/doc/com.github.spt-oss/google-api-plus)
+[![circleci](https://img.shields.io/badge/circleci-google--plus-brightgreen.svg)](https://circleci.com/gh/spt-oss/google-plus)
+[![maven central](https://img.shields.io/badge/maven_central-google--plus-blue.svg)](https://mvnrepository.com/artifact/com.github.spt-oss/google-plus)
+[![javadoc](https://img.shields.io/badge/javadoc-google--plus-blue.svg)](https://www.javadoc.io/doc/com.github.spt-oss/google-plus)
 
-* Custom implementation for [Google API Client](https://github.com/google/google-api-java-client)
+* Custom implementation for [Google Library](https://github.com/google)
 
 ## Install
 
@@ -13,7 +13,7 @@
 	```xml
 	<dependency>
 		<groupId>com.github.spt-oss</groupId>
-		<artifactId>google-api-plus</artifactId>
+		<artifactId>google-plus</artifactId>
 		<version>X.X.X</version>
 	</dependency>
 	```
