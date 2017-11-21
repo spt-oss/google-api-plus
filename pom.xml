@@ -9,12 +9,12 @@
 		<version>1.5.8.0</version>
 	</parent>
 
-	<artifactId>google-plus</artifactId>
+	<artifactId>google-api-plus</artifactId>
 	<version>1.23.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<description>Custom implementation for Google Library</description>
-	<url>https://github.com/spt-oss/google-plus</url>
+	<url>https://github.com/spt-oss/google-api-plus</url>
 	<inceptionYear>2017</inceptionYear>
 
 	<modules>
@@ -24,8 +24,8 @@
 	</modules>
 
 	<scm>
-		<url>https://github.com/spt-oss/google-plus/tree/master</url>
-		<connection>scm:git:git@github.com:spt-oss/google-plus.git</connection>
+		<url>https://github.com/spt-oss/google-api-plus/tree/master</url>
+		<connection>scm:git:git@github.com:spt-oss/google-api-plus.git</connection>
 		<tag>HEAD</tag>
 	</scm>
 
