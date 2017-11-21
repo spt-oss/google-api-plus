@@ -26,6 +26,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleCredential.Builder; //
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport; // TODO @checkstyle:ignore
 import com.google.api.client.http.HttpRequestInitializer; // TODO @checkstyle:ignore
 import com.google.api.client.http.HttpTransport; // TODO @checkstyle:ignore
+import com.google.api.client.http.XCompositeHttpRequestInitializer; // TODO @checkstyle:ignore
 import com.google.api.client.json.JsonFactory; // TODO @checkstyle:ignore
 
 /**
@@ -67,17 +68,17 @@ public class XGoogleCredential {
 	 * {@link Builder#setRequestInitializer(HttpRequestInitializer)} for {@link GoogleCredential}
 	 * 
 	 * @param credential {@link GoogleCredential}
-	 * @param requestInitializer {@link HttpRequestInitializer}
+	 * @param requestInitializers {@link HttpRequestInitializer}
 	 * @throws IllegalStateException if failed to set
 	 */
-	public static void setRequestInitializer(GoogleCredential credential, HttpRequestInitializer requestInitializer)
+	public static void setRequestInitializer(GoogleCredential credential, HttpRequestInitializer... requestInitializers)
 		throws IllegalStateException {
 		
 		try {
 			
 			Field xfield = Credential.class.getDeclaredField("requestInitializer");
 			xfield.setAccessible(true);
-			xfield.set(credential, requestInitializer);
+			xfield.set(credential, new XCompositeHttpRequestInitializer(requestInitializers));
 		}
 		catch (ReflectiveOperationException | SecurityException e) {
 			

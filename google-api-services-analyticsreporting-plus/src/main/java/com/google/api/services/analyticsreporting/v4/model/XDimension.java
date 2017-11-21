@@ -17,7 +17,7 @@
 package com.google.api.services.analyticsreporting.v4.model;
 
 /**
- * Constants for {@link Dimension}
+ * Utilities for {@link Dimension}
  */
 public class XDimension {
 	

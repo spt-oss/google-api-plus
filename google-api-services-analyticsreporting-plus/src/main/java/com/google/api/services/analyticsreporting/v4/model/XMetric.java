@@ -17,7 +17,7 @@
 package com.google.api.services.analyticsreporting.v4.model;
 
 /**
- * Constants for {@link Metric}
+ * Utilities for {@link Metric}
  */
 public class XMetric {
 	
