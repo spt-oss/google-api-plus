@@ -9,7 +9,7 @@ jobs:
             # checkout
             - add_ssh_keys:
                 fingerprints:
-                    - 97:0c:e2:62:5d:ee:f2:d7:08:d6:68:c7:54:e3:e5:24
+                    - fb:ab:77:37:62:98:24:08:6d:55:f4:48:61:ab:d4:17
             - run: |
                 curl -fsSL https://goo.gl/PcfcFG | \
                     bash -s -- /usr/local/bin
