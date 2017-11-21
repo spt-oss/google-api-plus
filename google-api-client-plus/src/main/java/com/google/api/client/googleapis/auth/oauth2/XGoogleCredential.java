@@ -97,7 +97,7 @@ public class XGoogleCredential {
 		
 		try {
 			
-			Field xfield = Credential.class.getDeclaredField("serviceAccountScopes");
+			Field xfield = GoogleCredential.class.getDeclaredField("serviceAccountScopes");
 			xfield.setAccessible(true);
 			xfield.set(credential, scopes);
 		}
