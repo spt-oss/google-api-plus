@@ -6,9 +6,6 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-import org.springframework.util.Assert;
-import org.springframework.util.ReflectionUtils;
-
 import com.google.api.client.auth.oauth2.Credential; // TODO @checkstyle:ignore
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential.Builder; // TODO @checkstyle:ignore
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport; // TODO @checkstyle:ignore
@@ -56,15 +53,21 @@ public class XGoogleCredential {
 	 * 
 	 * @param credential {@link GoogleCredential}
 	 * @param requestInitializer {@link HttpRequestInitializer}
+	 * @throws IllegalStateException if failed to set
 	 */
-	public static void setRequestInitializer(GoogleCredential credential, HttpRequestInitializer requestInitializer) {
+	public static void setRequestInitializer(GoogleCredential credential, HttpRequestInitializer requestInitializer)
+		throws IllegalStateException {
 		
-		Field field = ReflectionUtils.findField(Credential.class, "requestInitializer");
-		
-		Assert.notNull(field, "Field 'requestInitializer' not found");
-		
-		ReflectionUtils.makeAccessible(field);
-		ReflectionUtils.setField(field, credential, requestInitializer);
+		try {
+			
+			Field xfield = Credential.class.getDeclaredField("requestInitializer");
+			xfield.setAccessible(true);
+			xfield.set(credential, requestInitializer);
+		}
+		catch (ReflectiveOperationException | SecurityException e) {
+			
+			throw new IllegalStateException("Could not set value to 'requestInitializer' field", e);
+		}
 	}
 	
 	/**
@@ -72,14 +75,20 @@ public class XGoogleCredential {
 	 * 
 	 * @param credential {@link GoogleCredential}
 	 * @param scopes scopes
+	 * @throws IllegalStateException if failed to set
 	 */
-	public static void setServiceAccountScopes(GoogleCredential credential, Collection<String> scopes) {
+	public static void setServiceAccountScopes(GoogleCredential credential, Collection<String> scopes)
+		throws IllegalStateException {
 		
-		Field field = ReflectionUtils.findField(GoogleCredential.class, "serviceAccountScopes");
-		
-		Assert.notNull(field, "Field 'serviceAccountScopes' not found");
-		
-		ReflectionUtils.makeAccessible(field);
-		ReflectionUtils.setField(field, credential, scopes);
+		try {
+			
+			Field xfield = Credential.class.getDeclaredField("serviceAccountScopes");
+			xfield.setAccessible(true);
+			xfield.set(credential, scopes);
+		}
+		catch (ReflectiveOperationException | SecurityException e) {
+			
+			throw new IllegalStateException("Could not set value to 'serviceAccountScopes' field", e);
+		}
 	}
 }
