@@ -16,8 +16,10 @@
 
 package com.google.api.services.analyticsreporting.v4;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import com.google.api.client.auth.oauth2.Credential; // TODO @checkstyle:ignore
 import com.google.api.client.http.HttpRequestInitializer; // TODO @checkstyle:ignore
@@ -25,11 +27,6 @@ import com.google.api.client.http.HttpTransport; // TODO @checkstyle:ignore
 import com.google.api.client.http.XCompositeHttpRequestInitializer; // TODO @checkstyle:ignore
 import com.google.api.client.json.JsonFactory; // TODO @checkstyle:ignore
 import com.google.api.services.analyticsreporting.v4.AnalyticsReporting.Builder; // TODO @checkstyle:ignore
-import com.google.api.services.analyticsreporting.v4.model.GetReportsRequest; // TODO @checkstyle:ignore
-import com.google.api.services.analyticsreporting.v4.model.Report; // TODO @checkstyle:ignore
-import com.google.api.services.analyticsreporting.v4.model.ReportRequest; // TODO @checkstyle:ignore
-
-import lombok.NonNull;
 
 /**
  * Utilities for {@link AnalyticsReporting}
@@ -56,26 +53,38 @@ public class XAnalyticsReporting {
 	public static Builder builder(HttpTransport transport, JsonFactory jsonFactory, Credential credential,
 		HttpRequestInitializer... requestInitializers) {
 		
-		return new AnalyticsReporting.Builder(transport, jsonFactory,
-			new XCompositeHttpRequestInitializer(credential).additionalInitializers(requestInitializers));
+		List<HttpRequestInitializer> compositeInitializers = new ArrayList<>();
+		compositeInitializers.add(credential);
+		compositeInitializers.addAll(Arrays.asList(requestInitializers));
+		
+		return builder(transport, jsonFactory, compositeInitializers);
 	}
 	
 	/**
-	 * Get {@link Report}
+	 * Builder
 	 * 
-	 * @param reporting {@link AnalyticsReporting}
-	 * @param request {@link ReportRequest}
-	 * @return {@link Report}
-	 * @throws IOException if failed to get
+	 * @param transport {@link HttpTransport}
+	 * @param jsonFactory {@link JsonFactory}
+	 * @param requestInitializers {@link HttpRequestInitializer}
+	 * @return {@link Builder}
 	 */
-	public static Report getReport(@NonNull AnalyticsReporting reporting, ReportRequest request) throws IOException {
+	public static Builder builder(HttpTransport transport, JsonFactory jsonFactory,
+		HttpRequestInitializer... requestInitializers) {
 		
-		return reporting.reports()
-			/* @formatter:off */
-			.batchGet(new GetReportsRequest().setReportRequests(Arrays.asList(request)))
-			.execute()
-			.getReports()
-			.get(0);
-			/* @formatter:on */
+		return builder(transport, jsonFactory, Arrays.asList(requestInitializers));
+	}
+	
+	/**
+	 * Builder
+	 * 
+	 * @param transport {@link HttpTransport}
+	 * @param jsonFactory {@link JsonFactory}
+	 * @param requestInitializers {@link HttpRequestInitializer}
+	 * @return {@link Builder}
+	 */
+	public static Builder builder(HttpTransport transport, JsonFactory jsonFactory,
+		Collection<HttpRequestInitializer> requestInitializers) {
+		
+		return new Builder(transport, jsonFactory, new XCompositeHttpRequestInitializer(requestInitializers));
 	}
 }

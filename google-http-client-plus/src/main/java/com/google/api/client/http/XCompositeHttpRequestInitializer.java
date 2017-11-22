@@ -19,6 +19,7 @@ package com.google.api.client.http;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -38,20 +39,17 @@ public class XCompositeHttpRequestInitializer implements HttpRequestInitializer 
 	 */
 	public XCompositeHttpRequestInitializer(HttpRequestInitializer... initializers) {
 		
-		this.initializers = new ArrayList<>(Arrays.asList(initializers));
+		this(Arrays.asList(initializers));
 	}
 	
 	/**
-	 * Additional {@link HttpRequestInitializer}
+	 * Constructor
 	 * 
 	 * @param initializers {@link HttpRequestInitializer}
-	 * @return {@link XCompositeHttpRequestInitializer}
 	 */
-	public XCompositeHttpRequestInitializer additionalInitializers(HttpRequestInitializer... initializers) {
+	public XCompositeHttpRequestInitializer(Collection<HttpRequestInitializer> initializers) {
 		
-		this.initializers.addAll(Arrays.asList(initializers));
-		
-		return this;
+		this.initializers = new ArrayList<>(initializers);
 	}
 	
 	@Override

@@ -56,12 +56,12 @@ public class XReportRow {
 	 */
 	public String getDimension(String name) throws IllegalArgumentException {
 		
-		List<String> headers = this.header.getDimensions();
+		List<String> names = this.header.getDimensions();
 		List<String> dimensions = this.row.getDimensions();
 		
-		for (int i = 0; i < headers.size() && i < dimensions.size(); i++) {
+		for (int i = 0; i < names.size() && i < dimensions.size(); i++) {
 			
-			if (headers.get(i).equals(name)) {
+			if (names.get(i).equals(name)) {
 				
 				return dimensions.get(i);
 			}
@@ -79,16 +79,16 @@ public class XReportRow {
 	 */
 	public String getMetric(String name) throws IllegalArgumentException {
 		
-		List<MetricHeaderEntry> headers = this.header.getMetricHeader().getMetricHeaderEntries();
+		List<MetricHeaderEntry> names = this.header.getMetricHeader().getMetricHeaderEntries();
 		List<DateRangeValues> metrics = this.row.getMetrics();
 		
 		for (int i = 0; i < metrics.size(); i++) {
 			
 			DateRangeValues values = metrics.get(i);
 			
-			for (int j = 0; j < values.getValues().size() && j < headers.size(); j++) {
+			for (int j = 0; j < values.getValues().size() && j < names.size(); j++) {
 				
-				if (headers.get(j).getName().equals(name)) {
+				if (names.get(j).getName().equals(name)) {
 					
 					return values.getValues().get(j);
 				}

@@ -24,7 +24,7 @@ import com.google.common.base.Objects; // TODO @checkstyle:ignore
 import lombok.NonNull;
 
 /**
- * Utilities for {@link Report}
+ * Custom {@link Report}
  */
 public class XReport {
 	

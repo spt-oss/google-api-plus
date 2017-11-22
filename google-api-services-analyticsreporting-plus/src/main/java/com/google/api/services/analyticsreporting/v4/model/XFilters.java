@@ -17,7 +17,7 @@
 package com.google.api.services.analyticsreporting.v4.model;
 
 /**
- * Utilities for filters
+ * Custom filters
  */
 public class XFilters {
 	

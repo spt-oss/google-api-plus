@@ -17,7 +17,7 @@
 package com.google.api.services.analyticsreporting.v4.model;
 
 /**
- * Utilities for {@link DateRange}
+ * Custom {@link DateRange}
  */
 public class XDateRange {
 	
@@ -31,9 +31,6 @@ public class XDateRange {
 	
 	/**
 	 * Minimum
-	 * 
-	 * @see <a href=
-	 * "https://developers.google.com/analytics/devguides/reporting/core/v3/reference#startDate">start-date</a>
 	 */
 	public static final String MINIMUM = "2005-01-01";
 	
@@ -53,7 +50,7 @@ public class XDateRange {
 	 * @param number number
 	 * @return N days ago
 	 */
-	public static String ago(int number) {
+	public static String daysAgo(int number) {
 		
 		return number + "daysAgo";
 	}
